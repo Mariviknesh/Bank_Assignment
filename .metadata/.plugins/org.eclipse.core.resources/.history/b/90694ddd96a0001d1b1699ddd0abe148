@@ -38,9 +38,8 @@ class SimpleBank
             }
             else if(choice==3)
             {
-            	int bal=a.returnBal();
                 log.info("The Balance in your Account is");
-                log.info(Integer.toString(bal));
+                log.info(Integer.toString(a.returnBal()));
             }
         }
         mysc.close();
@@ -77,8 +76,7 @@ class Bank
         {
             log.info("Your Withdrawal amount is greater than balance amount\n");
             log.info("The Balance in your Account is ");
-            int a=returnBal();
-            log.info(Integer.toBinaryString(a));
+            log.info(Integer.toBinaryString(returnBal()));
         }
         this.bal=this.bal-amt;
         log.info("Amount is Withrawed\n");
