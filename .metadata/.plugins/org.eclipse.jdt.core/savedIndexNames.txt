@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Users\Tringapps-User2\assignments\Bank\.metadata\.plugins\org.eclipse.jdt.core
+3959137331.index
+4058810271.index
+443427785.index
+1865797976.index
+3269834161.index

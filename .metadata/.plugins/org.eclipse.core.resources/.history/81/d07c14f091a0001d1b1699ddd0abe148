@@ -1,0 +1,80 @@
+package org.bank;
+
+import java.util.Scanner;
+
+class Simple_Bank
+{
+    public static void main(String[]args) {
+        String name;
+        int accno,amt,choice=0;
+        Scanner mysc = new Scanner(System.in);   
+        System.out.print("Enter the Account number:");
+        accno=mysc.nextInt();
+        System.out.print("Enter the Account holder name:");
+        name = mysc.next();
+        Bank a= new Bank(name,accno);
+        while(choice!=4)
+        {
+            System.out.print("1.Deposit Amount\n");
+            System.out.print("2.Withdraw Amount\n");
+            System.out.print("3.View Balance\n");
+            System.out.print("4.Exit\n");
+            System.out.print("Enter the your choice:");
+            choice=mysc.nextInt();
+            if(choice==1)
+            {
+                System.out.print("Enter the Amount to be deposited:");
+                amt=mysc.nextInt();
+                a.Deposit(amt);
+            }
+            else if(choice==2)
+            {
+                System.out.print("Enter the Amount to be Withdraw:");
+                amt=mysc.nextInt();
+                a.Withdrawal(amt);
+            }
+            else if(choice==3)
+            {
+                System.out.print("The Balance in your Account is"+a.returnBal()+"\n");
+            }
+        }
+        mysc.close();
+    }
+}
+class Bank
+{
+    String name;
+    int accno;
+    int bal;
+
+    Bank( String name,int accno)
+    {
+        this.name=name;
+        this.accno=accno;
+        this.bal=0;  
+        System.out.print("Account Number:"+accno+"\n");      
+        System.out.print("Account Holder Name:"+name+"\n");      
+
+    }
+
+    public void Deposit(int amt) 
+    {
+        this.bal=this.bal+amt;
+        System.out.print("Amount is Deposited\n");
+    }
+
+    public void Withdrawal(int amt)
+    {
+        if(this.bal-amt<0)
+        {
+            System.out.print("Your Withdrawal amount is greater than balance amount\n");
+            System.out.print("The Balance in your Account is "+returnBal()+"\n");
+        }
+        this.bal=this.bal-amt;
+        System.out.print("Amount is Withrawed\n");
+    }
+    public int returnBal() 
+    {
+        return this.bal;
+    }
+}
